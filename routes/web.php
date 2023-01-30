@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Backend\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'],function(){
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
+    // Login Routes
+    Route::get('/login', [LoginController::class,'showLoginForm'])->name('login');
+    Route::post('/login/submit', [LoginController::class,'adminLogin'])->name('login.submit');
+
+    // Logout Routes
+    Route::post('/logout/submit', [LoginController::class, 'logout'])->name('logout.submit');
+
+    // Roles Route
+    // Route::resource('roles',RolesController::class);
+    // Customers Route
+    // Route::resource('customers',CustomersController::class);
+    // Admins Route
+    // Route::resource('admins',AdminsController::class);
+});
