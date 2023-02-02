@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Module;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PermissionSeeder extends Seeder
 {
@@ -14,6 +15,6 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $moduleAppDahsboard = Module::updateOrCreate(['name' => 'Admin Dashboard']);
     }
 }
