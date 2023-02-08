@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RoleSeeder extends Seeder
 {
@@ -14,6 +16,17 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $adminPermission = Permission::all();
+        Role::updateOrCreate([
+            'name'      => 'Super Admin',
+            'slug'      => 'super-admin',
+            'deletable' => false,
+        ])->permissions()->sync($adminPermission->pluck('id'));
+
+        Role::updateOrCreate([
+            'name' => 'User',
+            'slug' => 'user',
+            'deletable' => false,
+        ]);
     }
 }
