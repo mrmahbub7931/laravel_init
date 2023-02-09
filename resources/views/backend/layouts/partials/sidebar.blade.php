@@ -1,6 +1,3 @@
-@php
-    $user = \Auth::guard('admin')->user();
-@endphp
 <div class="nk-apps-sidebar is-dark">
     <div class="nk-apps-brand">
         <a href="html/index.html" class="logo-link">
@@ -52,8 +49,8 @@
                                 <span>AB</span>
                             </div>
                             <div class="user-info">
-                                <span class="lead-text">{{$user->name}}</span>
-                                <span class="sub-text text-soft">{{$user->email}}</span>
+                                <span class="lead-text">Admin</span>
+                                <span class="sub-text text-soft">admin@admin.com</span>
                             </div>
                         </div>
                     </div>

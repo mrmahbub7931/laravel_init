@@ -1,6 +1,3 @@
-@php
-    $user = \Auth::guard('admin')->user();
-@endphp
 <div class="nk-header nk-header-fixed is-light">
     <div class="container-fluid">
         <div class="nk-header-wrap">
@@ -334,8 +331,8 @@
                                         <span>AB</span>
                                     </div>
                                     <div class="user-info">
-                                        <span class="lead-text">{{$user->name}}</span>
-                                        <span class="sub-text">{{$user->email}}</span>
+                                        <span class="lead-text">Admin</span>
+                                        <span class="sub-text">admin@admin.com</span>
                                     </div>
                                 </div>
                             </div>
